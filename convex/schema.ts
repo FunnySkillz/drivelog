@@ -89,6 +89,16 @@ const applicationTables = {
     .index("by_token", ["tokenIdentifier"])
     .index("by_email", ["email"])
     .index("by_phone", ["phone"]),
+
+  invites: defineTable({
+    email: v.string(),
+    name: v.string(),
+    companyId: v.id("companies"),
+    invitedBy: v.id("users"),
+    invitedAt: v.number(),
+  })
+    .index("by_email", ["email"]),
+
 };
 
 export default defineSchema({
