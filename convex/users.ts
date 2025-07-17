@@ -95,6 +95,10 @@ export const ensureUserProfile = mutation({
       email: user.email,
     });
 
+    if (invite) {
+      await ctx.db.delete(invite._id);
+    }
+
     return "User profile created.";
   },
 });
