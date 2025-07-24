@@ -3,7 +3,7 @@
 
 import { Authenticated, Unauthenticated, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { SignInForm } from "@/components/auth/SignInForm";
+import SignInForm from "@/components/auth/SignInForm";
 
 export default function HomePage() {
   const loggedInUser = useQuery(api.users.getCurrentUserProfile);
@@ -33,13 +33,13 @@ export default function HomePage() {
         </div>
       </Unauthenticated>
 
-      <Authenticated>
+      {/* <Authenticated>
         {loggedInUser && company ? (
           <Dashboard user={loggedInUser} company={company} />
         ) : (
           <CompanySetup />
         )}
-      </Authenticated>
+      </Authenticated> */}
     </div>
   );
 }
